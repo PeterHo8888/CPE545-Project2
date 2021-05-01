@@ -55,8 +55,7 @@ public class Game {
     }
 
     /*
-     * 0 = stand 
-     * 1 = hit
+     * 0 = stand, 1 = hit
      */
     public BlackjackClientState do_action(int action) {
         switch (action) {

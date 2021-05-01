@@ -18,12 +18,19 @@ public class ServerMain {
 
             registry.rebind(BlackjackService.SERVICE_NAME, service);
 
-            Thread.sleep(100000000);
+            while (true) {
+                try {
+                    Thread.sleep(100000000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    break;
+                }
+            }
 
             registry.unbind(BlackjackService.SERVICE_NAME);
             UnicastRemoteObject.unexportObject(service, true);
             UnicastRemoteObject.unexportObject(registry, true);
-            System.out.println("HelloServer has stopped.");
+            System.out.println("BlackjackServer has stopped.");
         } catch (Exception e) {
             e.printStackTrace();
         }
